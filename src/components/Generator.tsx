@@ -15,18 +15,18 @@ const PasswordGenerator: React.FC = () => {
   const specialChars = "!@#$%^&*()_-+=[]{}|;:,.<>?";
 
   const generatePassword = () => {
-    let charPool = "";
-    if (includeLower) charPool += lowercaseChars;
-    if (includeUpper) charPool += uppercaseChars;
-    if (includeNumbers) charPool += numberChars;
-    if (includeSpecial) charPool += specialChars;
+    let passwordChar = "";
+    if (includeLower) passwordChar += lowercaseChars;
+    if (includeUpper) passwordChar += uppercaseChars;
+    if (includeNumbers) passwordChar += numberChars;
+    if (includeSpecial) passwordChar += specialChars;
 
-    if (charPool.length === 0) return;
+    if (passwordChar.length === 0) return;
 
     let newPassword = "";
     for (let i = 0; i < length; i++) {
-      const randomIndex = Math.floor(Math.random() * charPool.length);
-      newPassword += charPool[randomIndex];
+      const randomIndex = Math.floor(Math.random() * passwordChar.length);
+      newPassword += passwordChar[randomIndex];
     }
 
     setPassword(newPassword);
@@ -58,7 +58,7 @@ const PasswordGenerator: React.FC = () => {
               checked={includeLower}
               onChange={() => setIncludeLower(!includeLower)}
             />
-            Incluir minusculas
+            Incluir minúsculas
           </label>
         </div>
         <div>
@@ -68,7 +68,7 @@ const PasswordGenerator: React.FC = () => {
               checked={includeUpper}
               onChange={() => setIncludeUpper(!includeUpper)}
             />
-            Incluir Mayusculas
+            Incluir Mayúsculas
           </label>
         </div>
         <div>
@@ -78,7 +78,7 @@ const PasswordGenerator: React.FC = () => {
               checked={includeNumbers}
               onChange={() => setIncludeNumbers(!includeNumbers)}
             />
-            Incluir numeros
+            Incluir números
           </label>
         </div>
         <div>
@@ -88,7 +88,7 @@ const PasswordGenerator: React.FC = () => {
               checked={includeSpecial}
               onChange={() => setIncludeSpecial(!includeSpecial)}
             />
-            Incluir caracteres especiales
+            Incluir carácteres especiales
           </label>
         </div>
       </div>
@@ -108,9 +108,10 @@ const PasswordGenerator: React.FC = () => {
             value={password}
             readOnly
             style={{
-              backgroundColor: "none",
+              backgroundColor: "transparent",
               color: "white",
               textAlign: "center",
+              fontSize: "38px",
               border: "none",
             }}
           />
