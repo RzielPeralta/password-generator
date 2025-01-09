@@ -29,14 +29,13 @@ const PasswordGenerator: React.FC = () => {
       newPassword += passwordChar[randomIndex];
     }
 
-   
     // randomColor();
 
     setPassword(newPassword);
   };
 
   return (
-    <div style={{ textAlign: "center" }}>
+    <div style={{ textAlign: "center", width: "min-content" }}>
       <h1>Password Generator</h1>
       <div>
         <label>Longitud: </label>
@@ -102,7 +101,13 @@ const PasswordGenerator: React.FC = () => {
         Generar
       </button>
       {password && (
-        <div>
+        <div
+          style={{
+            textAlign: "center",
+            marginTop: "64px",
+            width: "min-content",
+          }}
+        >
           <p>
             <strong>Tu contraseña generada es: </strong>
           </p>
@@ -114,7 +119,7 @@ const PasswordGenerator: React.FC = () => {
               backgroundColor: "transparent",
               color: "white",
               textAlign: "center",
-              fontSize: "38px",
+              fontSize: "28px",
               border: "none",
             }}
           />

@@ -4,7 +4,7 @@ import PasswordGenerator from "./components/Generator";
 function App() {
   return (
     <>
-    <PasswordGenerator/>
+      <PasswordGenerator />
     </>
   );
 }
