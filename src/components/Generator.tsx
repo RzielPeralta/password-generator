@@ -29,6 +29,9 @@ const PasswordGenerator: React.FC = () => {
       newPassword += passwordChar[randomIndex];
     }
 
+   
+    // randomColor();
+
     setPassword(newPassword);
   };
 
@@ -117,6 +120,9 @@ const PasswordGenerator: React.FC = () => {
           />
         </div>
       )}
+      <div>
+        <p>Create by Raziel</p>
+      </div>
     </div>
   );
 };
