@@ -14,6 +14,16 @@ const PasswordGenerator: React.FC = () => {
   const numberChars = "0123456789";
   const specialChars = "!@#$%^&*()_-+=[]{}|;:,.<>?";
 
+  const randomColor = () => {
+    const passColor = document.getElementById("passGenerated") as HTMLElement;
+    const aleatoryColor = `#${Math.floor(Math.random() * 16777215).toString(
+      16
+    )}`;
+    if (passColor) {
+      passColor.style.color = aleatoryColor;
+    }
+  };
+
   const generatePassword = () => {
     let passwordChar = "";
     if (includeLower) passwordChar += lowercaseChars;
@@ -28,10 +38,8 @@ const PasswordGenerator: React.FC = () => {
       const randomIndex = Math.floor(Math.random() * passwordChar.length);
       newPassword += passwordChar[randomIndex];
     }
-
-    // randomColor();
-
     setPassword(newPassword);
+    randomColor();
   };
 
   return (
@@ -43,7 +51,7 @@ const PasswordGenerator: React.FC = () => {
           type="number"
           value={length}
           onChange={(e) => setLength(parseInt(e.target.value))}
-          min="4"
+          min="6"
           max="20"
         />
       </div>
@@ -112,6 +120,7 @@ const PasswordGenerator: React.FC = () => {
             <strong>Tu contraseña generada es: </strong>
           </p>
           <input
+            id="passGenerated"
             type="text"
             value={password}
             readOnly
@@ -121,13 +130,15 @@ const PasswordGenerator: React.FC = () => {
               textAlign: "center",
               fontSize: "28px",
               border: "none",
+              fontFamily: "Manrope",
+              fontWeight: 500,
             }}
           />
         </div>
       )}
-      <div>
+      <footer>
         <p>Create by Raziel</p>
-      </div>
+      </footer>
     </div>
   );
 };
